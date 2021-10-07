@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:webviewpopupauth/popupauth.dart';
 import 'package:zc_desktop_flutter/app/app.router.dart';
 import 'package:zc_desktop_flutter/constants/app_asset_paths.dart';
 import 'package:zc_desktop_flutter/model/app_models.dart';
@@ -158,11 +159,12 @@ class OrganizationWrapper extends StatelessWidget {
                                             },
                                             show: model!.showChannels,
                                             addTap: () {
-                                              showDialog(
+                                              showOpenPanel(url:'https://docs.zuri.chat/');
+                                              /* showDialog(
                                                 context: context,
                                                 builder: (context) =>
                                                     CreateChannelView(),
-                                              );
+                                              ); */
                                             },
                                             showChannelListDisplay: () {
                                               model!.openChannelsList();
@@ -198,7 +200,10 @@ class OrganizationWrapper extends StatelessWidget {
                                             },
                                             itemChild: (index) {
                                               return DMItem(
-                                                userName: model!.dms.elementAt(index).userProfile.displayName,
+                                                userName: model!.dms
+                                                    .elementAt(index)
+                                                    .userProfile
+                                                    .displayName,
                                                 userIcon:
                                                     'assets/icons/users.svg',
                                                 selected: false,
@@ -265,10 +270,9 @@ class DisplayMenu extends StatelessWidget {
             onTap: () {},
           ),
           ReusableMenuItem(
-            iconPath: 'assets/icons/plugins.svg',
-            text: 'People and User Groups',
-            onTap: model.goToUserPeopleGroup
-          ),
+              iconPath: 'assets/icons/plugins.svg',
+              text: 'People and User Groups',
+              onTap: model.goToUserPeopleGroup),
           ReusableMenuItem(
             iconPath: 'assets/icons/plugins.svg',
             text: 'Plugins',
