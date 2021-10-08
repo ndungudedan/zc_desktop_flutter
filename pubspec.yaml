@@ -47,6 +47,7 @@ dependencies:
   centrifuge: ^0.7.0
   # Url Launcher
   url_launcher: ^6.0.12
+  any_link_preview: ^2.0.1-rc
   webviewpopupauth:
     path: F:/School/flutter_win_webview/webview_popupauth
 
